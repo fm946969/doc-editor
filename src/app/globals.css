@@ -1,26 +1,45 @@
 @import "tailwindcss";
+@import "./styles/font.css";
+@import "./styles/doc.css";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-answer-visible: hsl(0, 100%, 40%);
+  --color-answer-invisible: hsla(0, 100%, 40%, 100%);
+  --color-answer: var(--color-answer-visible);
+
+  --color-bbx-visible: hsla(200, 100%, 50%, 50%);
+  --color-bbx-invisible: hsla(200, 100%, 50%, 0%);
+  --color-bbx: var(--color-bbx-visible);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+
+body {
+  background: hsl(0, 0%, 0%);
+  color: hsl(0, 0%, 0%);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: green;
 }
 
-@media (prefers-color-scheme: dark) {
+/* PRINT SPECIFIC STYLES */
+@media print {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --color-bbx: var(--color-bbx-visible);
+  }
+
+  /* Reset body margins to avoid blank pages usually caused by defaults */
+  body {
+    margin: 0;
+    padding: 0;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.can-highlight:not(:hover) {
+  transition: background-color 1.5s;
+}
+
+.can-highlight:hover {
+  background-color: hsl(45, 100%, 90%) !important;
+  transition: background-color 0.25s;
 }

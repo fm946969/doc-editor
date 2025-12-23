@@ -1,0 +1,250 @@
+.document {
+    margin: 0;
+    padding-top: 10mm;
+    padding-bottom: 10mm;
+    background-color: hsl(210, 10%, 40%);
+}
+
+.document-page {
+    position: relative;
+    width: 210mm;
+    /* A4 width */
+    height: 297mm;
+    /* A4 height */
+    margin-left: auto;
+    margin-right: auto;
+    /* Optional padding */
+    box-shadow: hsl(0, 0%, 0%) 0 0 20px;
+    /* Remove shadow for print */
+    background: white;
+    /* Ensure background is white for print */
+        padding: 0;
+}
+
+.document-page-break{
+    display: block;
+    content: "";
+    height: 20mm;
+}
+
+.document-content {position: relative;
+    left: 10mm;
+    top: 10mm;
+    width: calc(100% - 20mm);
+    height: calc(100% - 20mm);
+}
+
+.document-footer {
+    position: absolute;
+    bottom: 0mm;
+    left: 0;
+    right: 0;
+    font-size: 2.5mm;
+}
+
+.document-footer-line {
+    position: relative;
+    width: 100%;
+    height: 0.5mm;
+}
+.document-footer-info {
+    position: absolute;
+    left: 0mm;
+    text-align: left;
+}
+.document-footer-page-number {
+    position: absolute;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+.document-footer-author {
+    position: absolute;
+    right: 0mm;
+    text-align: right;
+}
+
+.document-title {
+    position: relative;
+    top: 3mm;
+    text-align: center;
+    font-size: 5mm;
+    font-weight: bold;
+    line-height: 7.5mm;
+}
+
+.document-student-info {
+    display: flex;
+    flex-direction: row;
+
+    line-height: 10mm;
+    margin-top: 10mm;
+    margin-bottom: 0mm;
+
+    /* evenly space between items */
+    justify-content: space-between;
+    /* align-items: center; */
+    width: 100%;
+}
+
+.document-student-field {
+    width: 45mm;
+    border-bottom: dotted hsl(0, 0%, 0%) 0.5mm;
+    /* border-radius: 1mm; */
+    height: 10mm;
+    text-align: right;
+    margin-top: 0mm;
+    margin-bottom: 0mm;
+}
+
+.document-score-box {
+    /* top-right to the parent container */
+    position: absolute;
+    top: 0mm;
+    right: 0mm;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.document-score-box-score {
+    position: relative;
+    right: 0;
+    width: 20mm;
+    height: 10mm;
+    border: solid hsl(0, 0%, 0%) 0.5mm;
+    font-size: 3mm;
+    font-weight: bold;
+    text-align: center;
+    line-height: 10mm;
+    color: var(--color-answer);
+}
+
+.document-score-box-score-max {
+    position: relative;
+    right: 0;
+    width: 20mm;
+    height: 10mm;
+    border: solid hsl(0, 0%, 0%) 0.5mm;
+    font-size: 7.5mm;
+    font-weight: bold;
+    text-align: center;
+    line-height: 10mm;
+}
+
+.document-section-header {
+    font-weight: bold;
+    line-height: 10mm;
+    background: hsl(0, 0%, 95%);
+    padding-left: 5mm;
+    margin-top: 3mm;
+    margin-bottom: 3mm;
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+}
+.document-mcq {
+    margin-top: 2mm;
+    margin-bottom: 3mm;
+    padding-left: 5mm;
+    padding-right: 5mm;
+    position: relative;
+    /* border: solid var(--color-bbx) 0.5mm; */
+    line-height: normal;
+}
+
+.document-mcq-question-number {
+    width: 10mm;
+    display: inline-block;
+}
+
+.document-mcq-question {
+    display: inline-block;
+    vertical-align: text-top;
+    width: calc(100% - 25mm);
+    text-align: justify;
+}
+
+.document-mcq-choices {
+    padding-left: 15mm;
+    /* space between number and text */
+    list-style-position: outside;
+    list-style-type: upper-latin;
+}
+.document-mcq-choices li {
+    
+    margin-top: 2mm;
+    margin-bottom: 2mm;
+    padding-left: 5mm;
+    margin-right: 15mm;
+    z-index: 1000;
+}
+.document-mcq-answer-box {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 10mm;
+    height: 10mm;
+    border: solid hsl(0, 0%, 0%) 0.334mm;
+    font-size: 7.5mm;
+    text-align: center;
+    line-height: 10mm;
+    color: var(--color-answer);
+}
+
+@media print {
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    .document {
+        position: absolute;
+        left: calc((100% - 210mm) / 2);
+        top: calc((100% - 297mm) / 2);
+        right: calc((100% - 210mm) / 2);
+        bottom: calc((100% - 297mm) / 2);
+        /* left: calc((100% - 210mm) / 2);
+        top: calc((100% - 297mm) / 2);
+        right: calc((100% - 210mm) / 2);
+        bottom: calc((100% - 297mm) / 2); */
+        background-color: hsl(30, 75%, 50%);
+        color: black;
+        /* border: solid lightskyblue 1mm; */
+        margin: 0;
+        padding: 0;
+    }
+
+    .document-page {
+        position: relative;
+        top: 0;
+        bottom: 0;
+        /* left: 10mm;
+        top: 10mm;
+        width: calc(100% - 20mm);
+        height: calc(100% - 20mm); */
+        box-shadow: none;
+        /* Remove shadow for print */
+        background: hsl(30, 75%, 75%);
+        /* Ensure background is white for print */
+
+        margin: 0;
+        padding: 0;
+    }
+
+    .document-content {
+        position: relative;
+        left: 10mm;
+        top: 10mm;
+        width: calc(100% - 20mm);
+        height: calc(100% - 20mm);
+        border: none;
+        background: hsl(30, 75%, 85%);
+    }
+
+    .document-page:not(:last-child) {
+        page-break-after: always;
+    }
+
+    .document-mcq {
+        border: none;
+    }
+}

@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'FontBody';
+    src: local('Times New Roman');
+    unicode-range: U+0000-00FF, U+0100-017F, U+0180-024F;
+}
+
+/* Define font for CJK characters */
+@font-face {
+    font-family: 'Font';
+    src: local('DFKai-SB');
+    unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF;
+}
+
+@font-face {
+    font-family: 'FontHeader';
+    src: local('Arial');
+    unicode-range: U+0000-00FF, U+0100-017F, U+0180-024F;
+}
+
+/* Define font for CJK characters */
+@font-face {
+    font-family: 'FontHeader';
+    src: Sans-serif;
+    unicode-range: U+4E00-9FFF, U+3400-4DBF, U+20000-2A6DF;
+}
